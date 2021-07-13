@@ -3,9 +3,15 @@ blueprint:
   description: Perform an action when a person leaves or enters a specific zone
   domain: automation
   input:
-    person_entity:
-      name: Person
-      description: The person you want to track
+    person_entity_1:
+      name: Person_1
+      description: The first person you want to track
+      selector:
+        entity:
+          domain: person
+    person_entity_2:
+      name: Person_2
+      description: The second person you want to track
       selector:
         entity:
           domain: person
@@ -27,7 +33,7 @@ blueprint:
       default: []
       selector:
         action: {}
-  source_url: https://community.home-assistant.io/t/generic-zone-interaction/268043
+  source_url: https://github.com/cm86/HomeAssistantBluePrints/blob/main/generic-zone-interaction.yaml
 trigger:
 - platform: zone
   entity_id: !input 'person_entity'
