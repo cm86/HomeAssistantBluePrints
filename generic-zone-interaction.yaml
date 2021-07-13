@@ -33,14 +33,22 @@ blueprint:
       default: []
       selector:
         action: {}
-  source_url: https://github.com/cm86/HomeAssistantBluePrints/blob/main/generic-zone-interaction.yaml
+  source_url: https://raw.githubusercontent.com/cm86/HomeAssistantBluePrints/main/generic-zone-interaction.yaml
 trigger:
 - platform: zone
-  entity_id: !input 'person_entity'
+  entity_id: !input 'person_entity_1'
   zone: !input 'zone_entity'
   event: leave
 - platform: zone
-  entity_id: !input 'person_entity'
+  entity_id: !input 'person_entity_1'
+  zone: !input 'zone_entity'
+  event: enter
+- platform: zone
+  entity_id: !input 'person_entity_2'
+  zone: !input 'zone_entity'
+  event: leave
+- platform: zone
+  entity_id: !input 'person_entity_2'
   zone: !input 'zone_entity'
   event: enter
 action:
